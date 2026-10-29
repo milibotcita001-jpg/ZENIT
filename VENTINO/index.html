@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZENIT Instituto de Bellas Artes | Siente, crea y expresa</title>
+  <meta name="description" content="ZENIT – . Carreras profesionales de Diseño Gráfico, Música y fotografia. Siente, crea y expresa." />
+  <meta name="theme-color" content="#0B0B0F" />
+  <link rel="icon" type="image/png" href="img/logo.png" />
+
+  <!-- Tipografías: Syne (display expresiva) + Manrope (texto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Hoja de estilos principal -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="is-loading">
+
+  <!-- ============================================================
+       PRELOADER (animación SVG de entrada)
+       ============================================================ -->
+  <!-- Definiciones SVG globales (degradado de marca reutilizable) -->
+  <svg class="svg-defs" width="0" height="0" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="gradStroke" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#A855F7" />
+        <stop offset="50%" stop-color="#FF4ED8" />
+        <stop offset="100%" stop-color="#00E5FF" />
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <svg class="preloader__svg" viewBox="0 0 600 120">
+      <text x="50%" y="62%" text-anchor="middle" class="preloader__text">ZENIT</text>
+    </svg>
+    <div class="preloader__bar"><span id="preloaderBar"></span></div>
+    <p class="preloader__tag">Siente · Crea · Expresa</p>
+  </div>
+
+  <!-- Barra de progreso de scroll -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Cursor personalizado (solo escritorio, se puede desactivar) -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ============================================================
+       MENÚ DE NAVEGACIÓN
+       ============================================================ -->
+  <header class="header" id="header">
+    <nav class="nav container" aria-label="Navegación principal">
+      <a href="#inicio" class="nav__logo" aria-label="ZENIT – Inicio">
+        <img src="img/logo.png" alt="Logo ZENIT" width="40" height="40" />
+      </a>
+
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="#inicio" class="nav__link active" data-section="inicio">Inicio</a></li>
+        <li><a href="#nosotros" class="nav__link" data-section="nosotros">Nosotros</a></li>
+        <li><a href="#carreras" class="nav__link" data-section="carreras">Carreras</a></li>
+        <li><a href="#admision" class="nav__link" data-section="admision">Admisión</a></li>
+        <li><a href="#galeria" class="nav__link" data-section="galeria">Galería</a></li>
+        <li><a href="#noticias" class="nav__link" data-section="noticias">Noticias</a></li>
+        <li><a href="#contacto" class="nav__link" data-section="contacto">Contacto</a></li>
+        <li class="nav__menu-cta"><a href="#inscripcion" class="btn btn--pink btn--sm">Inscríbete</a></li>
+        <span class="nav__indicator" id="navIndicator" aria-hidden="true"></span>
+      </ul>
+
+      <div class="nav__actions">
+        <button class="cursor-toggle" id="cursorToggle" aria-label="Activar o desactivar cursor personalizado" title="Cursor personalizado">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="9"/></svg>
+        </button>
+        <a href="#inscripcion" class="btn btn--pink btn--sm nav__cta magnetic">Inscríbete</a>
+        <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============================================================
+         HERO / PORTADA
+         ============================================================ -->
+    <section class="hero" id="inicio">
+      <!-- Fondo: orbes de luz animados -->
+      <div class="hero__bg" aria-hidden="true">
+        <span class="orb orb--violet" data-depth="0.2"></span>
+        <span class="orb orb--pink" data-depth="0.35"></span>
+        <span class="orb orb--cyan" data-depth="0.5"></span>
+        <div class="hero__grid"></div>
+      </div>
+
+      <!-- Fotografía artística con parallax -->
+      <div class="hero__media" data-depth="0.08">
+        <img src="img/portada.png" alt="Bailarina contemporánea rodeada de pintura neón violeta, rosa y cian" />
+      </div>
+
+      <!-- Elementos geométricos flotantes (SVG animados) -->
+      <div class="hero__shapes" aria-hidden="true">
+        <svg class="shape shape--ring" data-depth="0.6" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="none" stroke="url(#gradStroke)" stroke-width="1.5" stroke-dasharray="6 8"/></svg>
+        <svg class="shape shape--tri" data-depth="0.9" viewBox="0 0 100 100"><polygon points="50,8 92,88 8,88" fill="none" stroke="#00E5FF" stroke-width="2"/></svg>
+        <svg class="shape shape--square" data-depth="0.4" viewBox="0 0 100 100"><rect x="15" y="15" width="70" height="70" fill="none" stroke="#FF4ED8" stroke-width="2"/></svg>
+        <svg class="shape shape--wave" data-depth="0.3" viewBox="0 0 300 60"><path d="M0 30 Q 37.5 0 75 30 T 150 30 T 225 30 T 300 30" fill="none" stroke="url(#gradStroke)" stroke-width="2.5"/></svg>
+        <span class="shape shape--dot" data-depth="1.1"></span>
+        <span class="shape shape--plus" data-depth="0.7">+</span>
+      </div>
+
+      <div class="hero__content container">
+        <p class="hero__eyebrow"><span class="pulse-dot"></span> Instituto de Bellas Artes · Admisión 2026 abierta</p>
+        <h1 class="hero__title" aria-label="ZENIT">
+          <span class="split-text" data-split>ZENIT</span>
+        </h1>
+        <p class="hero__phrase">
+          El arte no se aprende solamente,<br />
+          <span class="rotator" aria-live="polite"><span class="rotator__word gradient-text" id="rotatorWord">se siente</span></span>, se crea y se expresa.
+        </p>
+        <p class="hero__desc">Descubre tu talento, desarrolla tu creatividad y transforma tu pasión en una profesión.</p>
+        <div class="hero__buttons">
+          <a href="#carreras" class="btn btn--gradient magnetic">
+            Explorar carreras
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#nosotros" class="btn btn--outline magnetic">Descubrir ZENIT</a>
+        </div>
+
+        <!-- Contadores dinámicos -->
+        <ul class="hero__stats">
+          <li><strong class="counter" data-target="4">0</strong><span>Carreras profesionales</span></li>
+          <li><strong class="counter" data-target="6">0</strong><span>Semestres académicos</span></li>
+          <li><strong class="counter" data-target="40" data-suffix="+">0</strong><span>Docentes artistas</span></li>
+          <li><strong class="counter" data-target="120" data-suffix="+">0</strong><span>Exposiciones al año</span></li>
+        </ul>
+      </div>
+
+      <a href="#nosotros" class="hero__scroll" aria-label="Desplazarse a Nosotros">
+        <span>Scroll</span><i></i>
+      </a>
+    </section>
+
+    <!-- Cinta animada (marquee) -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Siente</span><b>✦</b><span>Crea</span><b>✦</b><span>Expresa</span><b>✦</b><span>Diseño Gráfico</span><b>✦</b><span>Música</span><b>✦</b><span>fotografia</span><b>✦</b>
+        <span>Siente</span><b>✦</b><span>Crea</span><b>✦</b><span>Expresa</span><b>✦</b><span>Diseño Gráfico</span><b>✦</b><span>Música</span><b>✦</b><span>fotografia</span><b>✦</b>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         NOSOTROS
+         ============================================================ -->
+    <section class="section about" id="nosotros">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag">01 — Nosotros</span>
+          <h2 class="section__title">Un espacio donde la <em class="gradient-text">imaginación</em> se convierte en profesión.</h2>
+        </div>
+
+        <div class="about__grid">
+          <div class="about__media reveal reveal--left">
+            <div class="about__img-wrap tilt">
+              <img src="img/nosostros 1.png" alt="Estudiantes de ZENIT creando en el taller" loading="lazy" />
+            </div>
+            <div class="about__badge">
+              <svg viewBox="0 0 200 200" class="about__badge-svg" aria-hidden="true">
+                <defs><path id="circlePath" d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0"/></defs>
+                <text><textPath href="#circlePath">SIENTE · CREA · EXPRESA · ZENIT · </textPath></text>
+              </svg>
+              <span class="about__badge-core">V</span>
+            </div>
+          </div>
+
+          <div class="about__text reveal reveal--right">
+            <h3>Quiénes somos</h3>
+            <p><strong>ZENIT – Instituto de Bellas Artes</strong> es una institución de formación artística profesional que reúne a creadores, docentes e investigadores en un entorno libre, contemporáneo y tecnológico. Creemos que cada estudiante tiene una voz única y nuestra tarea es ayudarle a descubrirla, perfeccionarla y proyectarla al mundo.</p>
+            <p>Integramos la tradición de las bellas artes con los lenguajes digitales y escénicos actuales, formando artistas capaces de emocionar, comunicar y transformar su entorno.</p>
+
+            <!-- Pestañas: Misión / Visión / Filosofía -->
+            <div class="tabs" data-tabs>
+              <div class="tabs__list" role="tablist">
+                <button class="tabs__btn active" role="tab" aria-selected="true" data-tab="mision">Misión</button>
+                <button class="tabs__btn" role="tab" aria-selected="false" data-tab="vision">Visión</button>
+                <button class="tabs__btn" role="tab" aria-selected="false" data-tab="filosofia">Filosofía educativa</button>
+              </div>
+              <div class="tabs__panel active" role="tabpanel" data-panel="mision">
+                <p>Formar profesionales de las artes con excelencia técnica, sensibilidad estética y pensamiento crítico, capaces de crear propuestas originales que aporten a la cultura y a la sociedad.</p>
+              </div>
+              <div class="tabs__panel" role="tabpanel" data-panel="vision">
+                <p>Ser reconocidos internacionalmente como el instituto de bellas artes que lidera la innovación creativa, conectando arte, tecnología e identidad para formar a los artistas del futuro.</p>
+              </div>
+              <div class="tabs__panel" role="tabpanel" data-panel="filosofia">
+                <p>Aprender haciendo. Nuestro modelo combina taller, experimentación y proyecto real: el estudiante es protagonista de su proceso, el docente es guía y mentor, y el error es parte esencial del descubrimiento artístico.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Valores institucionales -->
+        <div class="values">
+          <h3 class="values__title reveal">Valores institucionales</h3>
+          <div class="values__grid">
+            <article class="value-card reveal" style="--d:0s">
+              <span class="value-card__num">01</span>
+              <h4>Creatividad</h4>
+              <p>Impulsamos la imaginación sin límites y la búsqueda de lenguajes propios.</p>
+            </article>
+            <article class="value-card reveal" style="--d:.08s">
+              <span class="value-card__num">02</span>
+              <h4>Libertad artística</h4>
+              <p>Respetamos cada voz y cada forma de expresión, sin moldes ni fórmulas.</p>
+            </article>
+            <article class="value-card reveal" style="--d:.16s">
+              <span class="value-card__num">03</span>
+              <h4>Excelencia</h4>
+              <p>Rigor técnico y profesionalismo en cada proceso creativo.</p>
+            </article>
+            <article class="value-card reveal" style="--d:.24s">
+              <span class="value-card__num">04</span>
+              <h4>Identidad</h4>
+              <p>Valoramos nuestras raíces culturales como fuente de autenticidad.</p>
+            </article>
+            <article class="value-card reveal" style="--d:.32s">
+              <span class="value-card__num">05</span>
+              <h4>Innovación</h4>
+              <p>Unimos arte y tecnología para crear el futuro de la cultura.</p>
+            </article>
+            <article class="value-card reveal" style="--d:.40s">
+              <span class="value-card__num">06</span>
+              <h4>Sensibilidad</h4>
+              <p>El arte nace de la emoción; formamos personas empáticas y conscientes.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CARRERAS PROFESIONALES
+         (la información detallada de cada carrera está en js/script.js → CAREERS)
+         ============================================================ -->
+    <section class="section careers" id="carreras">
+      <div class="container">
+        <div class="section__head section__head--split reveal">
+          <div>
+            <span class="section__tag">02 — Carreras profesionales</span>
+            <h2 class="section__title">Cuatro caminos para <em class="gradient-text">crear</em> tu futuro.</h2>
+          </div>
+          <p class="section__lead">Todas nuestras carreras tienen una duración de <strong>3 años</strong>, equivalentes a <strong>6 semestres académicos</strong>, con formación teórica, práctica de taller y proyectos reales.</p>
+        </div>
+
+        <div class="careers__grid">
+          <!-- Carrera 1 -->
+          <article class="career-card reveal tilt" data-career="diseno" style="--accent:#A855F7">
+            <div class="career-card__media">
+              <img src="img/diseno-grafico.jpg" alt="Diseño Gráfico en ZENIT" loading="lazy" />
+              <span class="career-card__num">01</span>
+            </div>
+            <div class="career-card__body">
+              <div class="career-card__meta"><span>3 años</span><span>6 semestres</span></div>
+              <h3>Diseño Gráfico</h3>
+              <p>Comunica ideas con fuerza visual. Crea marcas, piezas editoriales e interfaces que conectan con las personas.</p>
+              <ul class="career-card__tags">
+                <li>Comunicación visual</li><li>Identidad corporativa</li><li>Ilustración</li><li>Diseño editorial</li><li>Diseño digital</li>
+              </ul>
+              <ul class="career-card__info">
+                <li><b>Plan de estudios:</b> 6 semestres · 36 asignaturas</li>
+                <li><b>Competencias:</b> branding, tipografía, UI y narrativa visual</li>
+                <li><b>Perfil:</b> diseñador/a de marca, editorial y digital</li>
+              </ul>
+              <div class="career-card__actions">
+                <button class="btn btn--outline btn--sm" data-open-career="diseno">Ver carrera</button>
+                <button class="btn btn--pink btn--sm" data-enroll="Diseño Gráfico">Inscribirme</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Carrera 2 -->
+          <article class="career-card reveal tilt" data-career="plasticas" style="--accent:#FF4ED8; --d:.1s">
+            <div class="career-card__media">
+              <img src="img/fotografia.png" alt="Fotografía en ZENIT" loading="lazy" />
+              <span class="career-card__num">02</span>
+            </div>
+            <div class="career-card__body">
+              <div class="career-card__meta"><span>3 años</span><span>6 semestres</span></div>
+              <h3>Fotografía</h3>
+              <p>Domina la luz, captura emociones y transforma momentos en imágenes con identidad, técnica y creatividad.</p>
+              <ul class="career-card__tags">
+                <li>Fotografía digital</li><li>Iluminación</li><li>Retrato</li><li>Fotografía publicitaria</li><li>Edición fotográfica</li>
+              </ul>
+              <ul class="career-card__info">
+                <li><b>Plan de estudios:</b> 6 semestres · Formación teórico-práctica</li>
+                <li><b>Competencias:</b> manejo de cámara, composición, iluminación y edición digital</li>
+                <li><b>Perfil:</b> fotógrafo/a, retratista, fotógrafo/a publicitario/a y creador/a de contenido visual</li>
+              </ul>
+              <div class="career-card__actions">
+                <button class="btn btn--outline btn--sm" data-open-career="plasticas">Ver carrera</button>
+                <button class="btn btn--pink btn--sm" data-enroll="Artes Plásticas">Inscribirme</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Carrera 3 -->
+          <article class="career-card reveal tilt" data-career="musica" style="--accent:#00E5FF; --d:.2s">
+            <div class="career-card__media">
+              <img src="img/musica.jpg" alt="Música en ZENIT" loading="lazy" />
+              <span class="career-card__num">03</span>
+            </div>
+            <div class="career-card__body">
+              <div class="career-card__meta"><span>3 años</span><span>6 semestres</span></div>
+              <h3>Música</h3>
+              <p>Interpreta, compón y produce. Convierte el sonido en lenguaje y lleva tu música a escenarios y estudios.</p>
+              <ul class="career-card__tags">
+                <li>Interpretación musical</li><li>Instrumentos</li><li>Composición</li><li>Producción musical</li><li>Formación vocal</li>
+              </ul>
+              <ul class="career-card__info">
+                <li><b>Plan de estudios:</b> 6 semestres · 36 asignaturas</li>
+                <li><b>Competencias:</b> interpretación, armonía y producción</li>
+                <li><b>Perfil:</b> intérprete, compositor/a, productor/a</li>
+              </ul>
+              <div class="career-card__actions">
+                <button class="btn btn--outline btn--sm" data-open-career="musica">Ver carrera</button>
+                <button class="btn btn--pink btn--sm" data-enroll="Música">Inscribirme</button>
+              </div>
+            </div>
+          </article>
+
+    </section>
+
+    <!-- ============================================================
+         ¿POR QUÉ ESTUDIAR EN ZENIT?
+         ============================================================ -->
+    <section class="section why" id="por-que">
+      <div class="why__glow" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag">03 — ¿Por qué ZENIT?</span>
+          <h2 class="section__title">Aquí no solo estudias arte. <em class="gradient-text">Lo vives.</em></h2>
+        </div>
+
+        <div class="why__layout">
+          <div class="why__grid">
+            <article class="why-card reveal" style="--d:0s">
+              <div class="why-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div>
+              <h3>Formación artística profesional</h3>
+              <p>Programas rigurosos con estándares internacionales y titulación profesional.</p>
+            </article>
+            <article class="why-card reveal" style="--d:.06s">
+              <div class="why-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
+              <h3>Docentes especializados</h3>
+              <p>Artistas activos, diseñadores, músicos y Fotógrafos.</p>
+            </article>
+            <article class="why-card reveal" style="--d:.12s">
+              <div class="why-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-6h6v6"/></svg></div>
+              <h3>Espacios creativos</h3>
+              <p>Talleres, estudios de grabación y laboratorio digital.</p>
+            </article>
+            <article class="why-card reveal" style="--d:.18s">
+              <div class="why-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20l9-16H3z"/><path d="M12 14v.01"/></svg></div>
+              <h3>Desarrollo de proyectos</h3>
+              <p>Cada semestre culmina con un proyecto integrador presentado ante público y jurado.</p>
+            </article>
+            <article class="why-card reveal" style="--d:.24s">
+              <div class="why-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="1"/><path d="M3 14l5-5 4 4 3-3 6 6"/></svg></div>
+              <h3>Exposiciones artísticas</h3>
+              <p>Muestras, conciertos y funciones abiertas a la ciudad durante todo el año.</p>
+            </article>
+            <article class="why-card reveal" style="--d:.30s">
+              <div class="why-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 4l6 6-10 10H4v-6z"/><path d="M12 6l6 6"/></svg></div>
+              <h3>Aprendizaje práctico</h3>
+<p>Desarrolla tus habilidades mediante proyectos reales, prácticas en talleres creativos, sesiones fotográficas y experiencias de interpretación musical.</p>
+            </article>
+            <article class="why-card why-card--wide reveal" style="--d:.36s">
+              <div class="why-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18M3 12h18"/></svg></div>
+              <h3>Desarrollo de identidad artística</h3>
+              <p>Mentorías personalizadas para construir tu portafolio, tu discurso y tu propia voz como artista.</p>
+            </article>
+          </div>
+
+          <div class="why__media reveal reveal--right">
+            <div class="why__img why__img--a parallax" data-speed="0.06"><img src="img/img 1.png" alt="Escultor trabajando en el taller" loading="lazy" /></div>
+            <div class="why__img why__img--b parallax" data-speed="-0.05"><img src="img/img 2.png" alt="Pareja de bailarines en escena" loading="lazy" /></div>
+            <div class="why__stat">
+              <strong class="counter" data-target="70" data-suffix="%">0</strong>
+              <span>de formación práctica</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- ============================================================
+         GALERÍA ARTÍSTICA
+         (las imágenes se encuentran en img/galeria/)
+         ============================================================ -->
+    <section class="section gallery" id="galeria">
+      <div class="container">
+        <div class="section__head section__head--split reveal">
+          <div>
+            <span class="section__tag">04 — Galería artística</span>
+            <h2 class="section__title">Obras que <em class="gradient-text">respiran</em> talento.</h2>
+          </div>
+          <p class="section__lead">Explora el trabajo de nuestra comunidad creativa. Filtra por disciplina y haz clic en cualquier obra para ampliarla.</p>
+        </div>
+
+        <div class="filters reveal" role="toolbar" aria-label="Filtrar galería">
+          <button class="filter-btn active" data-filter="all">Todo</button>
+          <button class="filter-btn" data-filter="diseno">Diseño gráfico</button>
+          <button class="filter-btn" data-filter="fotografia">Fotografía</button>
+          <button class="filter-btn" data-filter="musica">Música</button>
+
+        </div>
+
+        <div class="masonry" id="gallery">
+          <figure class="g-item" data-category="diseno"><img src="img/images.jpg" alt="Bailarina cubierta de tela en escena" loading="lazy" /><figcaption><span>Diseño Grafico</span>colorimetria</figcaption></figure>
+          <figure class="g-item" data-category="musica"><img src="img/mano-primer-plano-escribiendo-cancion_23-2148845408.avif" alt="Bustos de arcilla en el taller" loading="lazy" /><figcaption><span>Musica</span>composición</figcaption></figure>
+          <figure class="g-item g-item--wide" data-category="musica"><img src="img/images (1).jpg" alt="Pintura expresionista de colores intensos" loading="lazy" /><figcaption><span>Musica</span>prueba de canto</figcaption></figure>
+          <figure class="g-item g-item--tall" data-category="diseno"><img src="img/conjunto-urbano-minimo-vector-creativo-serif-pantalla-alfabeto-fuentes-paquete-diseno-ilustracion-vectorial_668856-6957.avif" alt="Cartel tipográfico de diseño gráfico" loading="lazy" /><figcaption><span>Diseño gráfico</span>Tipografía urbana</figcaption></figure>
+          <figure class="g-item" data-category="musica"><img src="img/Cantante bajo luces neón.png" alt="Cantante en concierto en vivo" loading="lazy" /><figcaption><span>Música</span>Voz en escena</figcaption></figure>
+          <figure class="g-item" data-category="fotografia"><img src="img/fotografa-encuadre-marco-natural-810x540.jpg" alt="Fotógrafa en estudio" loading="lazy" /><figcaption><span>Fotografía</span>Prueba de Camara</figcaption></figure>
+          <figure class="g-item g-item--tall" data-category="musica"><img src="img/Concierto nocturno entre luces púrpuras.png" alt="Actores en función teatral" loading="lazy" /><figcaption><span>Musica</span>Luz y sonido</figcaption></figure>
+          <figure class="g-item" data-category="diseno"><img src="img/images (2).jpg" alt="Concierto con luces azules" loading="lazy" /><figcaption><span>Diseño Grafico</span>Diseño visual</figcaption></figure>
+          <figure class="g-item g-item--wide" data-category="fotografia"><img src="img/Sesión fotográfica en estudio.png" alt="Ensayo teatral con actores" loading="lazy" /><figcaption><span>Fotografia</span>Sesion de fotos</figcaption></figure>
+          <figure class="g-item" data-category="fotografia"><img src="img/Retrato monocromo con cámara vintage.png" alt="Retrato en blanco y negro con cámara vintage" loading="lazy" /><figcaption><span>Fotografía</span>Tiempo detenido</figcaption></figure>
+          <figure class="g-item" data-category="diseno"><img src="img/images.png" alt="Composición tipográfica de números y letras" loading="lazy" /><figcaption><span>Diseño gráfico</span>Sistema visual</figcaption></figure>
+          <figure class="g-item" data-category="musica"><img src="img/middle-school-students-music-class_249974-20020.avif" alt="Pintura abstracta de líneas vivas" loading="lazy" /><figcaption><span>Musica</span></figcaption></figure>
+          <figure class="g-item" data-category="diseno"><img src="img/images (3).jpg" alt="Concierto con luces azules" loading="lazy" /><figcaption><span>Diseño Grafico</span>branding</figcaption></figure>
+          <figure class="g-item g-item--wide" data-category="fotografia"><img src="img/images (4).jpg" alt="Ensayo teatral con actores" loading="lazy" /><figcaption><span>Fotografia</span>Montaje</figcaption></figure>
+          <figure class="g-item" data-category="fotografia"><img src="img/fotografo-producto-camara-estudio_23-2148970262.avif" alt="Ensayo teatral con actores" loading="lazy" /><figcaption><span>Fotografia</span>fotografia publicitaria</figcaption></figure>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ============================================================
+         ADMISIÓN E INSCRIPCIONES
+         ============================================================ -->
+    <section class="section admission" id="admision">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag">05 — Admisión 2026</span>
+          <h2 class="section__title">Tu historia artística <em class="gradient-text">empieza aquí.</em></h2>
+        </div>
+
+        <div class="admission__top">
+          <!-- Requisitos -->
+          <div class="panel reveal reveal--left">
+            <h3 class="panel__title"><span class="panel__icon">✦</span> Requisitos</h3>
+            <ul class="check-list">
+              <li>Certificado de estudios secundarios completos.</li>
+              <li>Documento de identidad vigente (copia).</li>
+              <li>Partida o acta de nacimiento.</li>
+              <li>Dos fotografías tamaño carné, fondo blanco.</li>
+              <li>Portafolio, audición o prueba de aptitud según la carrera.</li>
+              <li>Ficha de inscripción completa (formulario en línea).</li>
+            </ul>
+          </div>
+
+          <!-- Fechas importantes -->
+          <div class="panel reveal reveal--right">
+            <h3 class="panel__title"><span class="panel__icon">✦</span> Fechas importantes</h3>
+            <ul class="dates">
+              <li><time>15 ENE – 28 FEB</time><span>Inscripciones en línea</span></li>
+              <li><time>03 – 07 MAR</time><span>Pruebas de aptitud y audiciones</span></li>
+              <li><time>14 MAR</time><span>Publicación de resultados</span></li>
+              <li><time>17 – 21 MAR</time><span>Matrícula de ingresantes</span></li>
+              <li><time>24 MAR</time><span>Semana de inducción</span></li>
+              <li><time>31 MAR</time><span>Inicio de clases</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Proceso de admisión (timeline) -->
+        <div class="process">
+          <h3 class="process__title reveal">Proceso de admisión</h3>
+          <ol class="process__steps">
+            <svg class="process__line" viewBox="0 0 1000 4" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="2" x2="1000" y2="2" stroke="url(#gradStroke)" stroke-width="4"/></svg>
+            <li class="step reveal" style="--d:0s"><span class="step__num">1</span><h4>Inscríbete</h4><p>Completa el formulario en línea con tus datos y carrera de interés.</p></li>
+            <li class="step reveal" style="--d:.1s"><span class="step__num">2</span><h4>Entrevista</h4><p>Conversa con nuestro equipo académico sobre tus objetivos artísticos.</p></li>
+            <li class="step reveal" style="--d:.2s"><span class="step__num">3</span><h4>Prueba de aptitud</h4><p>Presenta tu portafolio, audición o prueba práctica según la carrera.</p></li>
+            <li class="step reveal" style="--d:.3s"><span class="step__num">4</span><h4>Matrícula</h4><p>Recibe tus resultados, formaliza tu matrícula y ¡bienvenido a ZENIT!</p></li>
+          </ol>
+        </div>
+
+        <div class="admission__bottom">
+          <!-- Preguntas frecuentes -->
+          <div class="faq reveal reveal--left">
+            <h3 class="panel__title"><span class="panel__icon">?</span> Preguntas frecuentes</h3>
+            <div class="accordion" id="faq">
+              <div class="accordion__item">
+                <button class="accordion__btn" aria-expanded="false">¿Necesito experiencia previa para postular?<i></i></button>
+                <div class="accordion__panel"><p>No es obligatoria. Valoramos el interés, la sensibilidad y el compromiso. La prueba de aptitud evalúa tu potencial, no solo tu nivel técnico.</p></div>
+              </div>
+              <div class="accordion__item">
+                <button class="accordion__btn" aria-expanded="false">¿Cuánto dura cada carrera?<i></i></button>
+                <div class="accordion__panel"><p>Todas las carreras duran 3 años, equivalentes a 6 semestres académicos, e incluyen un proyecto final de titulación.</p></div>
+              </div>
+              <div class="accordion__item">
+                <button class="accordion__btn" aria-expanded="false">¿Qué debo presentar en la prueba de aptitud?<i></i></button>
+                <div class="accordion__panel"><p>Diseño Gráfico: portafolio de 8 a 12 trabajos. Música: audición con dos piezas. Fotografia: portafolio de 8 a 12 trabajos.</p></div>
+              </div>
+              <div class="accordion__item">
+                <button class="accordion__btn" aria-expanded="false">¿Existen becas o descuentos?<i></i></button>
+                <div class="accordion__panel"><p>Sí. Ofrecemos becas por excelencia artística, rendimiento académico y apoyo socioeconómico. Consulta las bases en la oficina de admisión.</p></div>
+              </div>
+              <div class="accordion__item">
+                <button class="accordion__btn" aria-expanded="false">¿Cuáles son los horarios de clase?<i></i></button>
+                <div class="accordion__panel"><p>Contamos con turno mañana (8:00 – 13:00) y turno tarde (14:00 – 19:00). Los ensayos y talleres libres pueden extenderse hasta las 21:00.</p></div>
+              </div>
+            </div>
+
+            <!-- Información para nuevos estudiantes -->
+            <div class="newcomers">
+              <h4>Información para nuevos estudiantes</h4>
+              <p>Durante la <strong>semana de inducción</strong> conocerás los talleres, a tus docentes y mentores, recibirás tu carné institucional, acceso a la plataforma virtual y tu kit de bienvenida ZENIT.</p>
+            </div>
+          </div>
+
+          <!-- Formulario de inscripción -->
+          <div class="form-card reveal reveal--right" id="inscripcion">
+            <div class="form-card__head">
+              <h3>Ficha de inscripción</h3>
+              <p>Completa tus datos y nuestro equipo de admisión se comunicará contigo.</p>
+            </div>
+            <form class="form" id="enrollForm" novalidate>
+              <div class="form__row">
+                <div class="field">
+                  <input type="text" id="fNombres" name="nombres" placeholder=" " autocomplete="name" required />
+                  <label for="fNombres">Nombres y apellidos *</label>
+                  <small class="field__error"></small>
+                </div>
+              </div>
+              <div class="form__row form__row--2">
+                <div class="field">
+                  <input type="text" id="fDocumento" name="documento" placeholder=" " inputmode="numeric" required />
+                  <label for="fDocumento">Documento de identidad *</label>
+                  <small class="field__error"></small>
+                </div>
+                <div class="field field--date">
+                  <input type="date" id="fNacimiento" name="nacimiento" required />
+                  <label for="fNacimiento">Fecha de nacimiento *</label>
+                  <small class="field__error"></small>
+                </div>
+              </div>
+              <div class="form__row form__row--2">
+                <div class="field">
+                  <input type="email" id="fCorreo" name="correo" placeholder=" " autocomplete="email" required />
+                  <label for="fCorreo">Correo electrónico *</label>
+                  <small class="field__error"></small>
+                </div>
+                <div class="field">
+                  <input type="tel" id="fCelular" name="celular" placeholder=" " autocomplete="tel" required />
+                  <label for="fCelular">Celular *</label>
+                  <small class="field__error"></small>
+                </div>
+              </div>
+              <div class="form__row">
+                <div class="field field--select">
+                  <select id="fCarrera" name="carrera" required>
+                    <option value="" disabled selected></option>
+                    <option>Diseño Gráfico</option>
+                    <option>Fotografia</option>
+                    <option>Música</option>
+            
+                  </select>
+                  <label for="fCarrera">Carrera de interés *</label>
+                  <small class="field__error"></small>
+                </div>
+              </div>
+              <div class="form__row">
+                <div class="field">
+                  <textarea id="fMensaje" name="mensaje" rows="4" placeholder=" " maxlength="500" required></textarea>
+                  <label for="fMensaje">Mensaje *</label>
+                  <small class="field__error"></small>
+                  <span class="field__count" id="msgCount">0/500</span>
+                </div>
+              </div>
+              <label class="checkbox">
+                <input type="checkbox" id="fTerminos" name="terminos" required />
+                <span>Acepto el tratamiento de mis datos personales con fines de admisión.</span>
+              </label>
+              <small class="field__error" id="terminosError"></small>
+              <button type="submit" class="btn btn--gradient btn--block">
+                <span class="btn__label">Enviar inscripción</span>
+                <span class="btn__loader" aria-hidden="true"></span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SUSCRIPCIÓN
+         ============================================================ -->
+    <section class="subscribe" id="suscripcion">
+      <div class="subscribe__bg" aria-hidden="true">
+        <svg class="subscribe__waves" viewBox="0 0 1200 300" preserveAspectRatio="none">
+          <path class="wave wave--1" d="M0 150 C 200 50 400 250 600 150 S 1000 50 1200 150" />
+          <path class="wave wave--2" d="M0 180 C 200 80 400 280 600 180 S 1000 80 1200 180" />
+          <path class="wave wave--3" d="M0 120 C 200 20 400 220 600 120 S 1000 20 1200 120" />
+        </svg>
+      </div>
+      <div class="container subscribe__inner reveal">
+        <span class="section__tag section__tag--light">Newsletter ZENIT</span>
+        <h2 class="subscribe__title">No te pierdas lo que está por crearse.</h2>
+        <p class="subscribe__desc">Suscríbete y recibe novedades, eventos, exposiciones, talleres, convocatorias y noticias de ZENIT.</p>
+        <form class="subscribe__form" id="subscribeForm" novalidate>
+          <label for="subEmail" class="sr-only">Correo electrónico</label>
+          <input type="email" id="subEmail" name="email" placeholder="tucorreo@ejemplo.com" autocomplete="email" required />
+          <button type="submit" class="btn btn--dark magnetic">Suscribirme</button>
+        </form>
+        <p class="subscribe__msg" id="subscribeMsg" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         NOTICIAS Y EVENTOS
+         (el texto ampliado está dentro de .news-card__full)
+         ============================================================ -->
+    <section class="section news" id="noticias">
+      <div class="container">
+        <div class="section__head section__head--split reveal">
+          <div>
+            <span class="section__tag">06 — Noticias y eventos</span>
+            <h2 class="section__title">Lo que está <em class="gradient-text">pasando</em> en ZENIT.</h2>
+          </div>
+          <p class="section__lead">Exposiciones, talleres, concursos, conciertos y convocatorias abiertas para nuestra comunidad y la ciudad.</p>
+        </div>
+
+        <div class="news__grid">
+          <article class="news-card reveal" style="--d:0s">
+          
+<div class="news-card__media"><img src="https://images.pexels.com/photos/7976430/pexels-photo-7976430.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Muestra artística de estudiantes" loading="lazy" /><span class="news-card__cat">Muestra artística</span></div>
+<div class="news-card__body">
+  <time datetime="2026-04-18">18 Abril 2026</time>
+  <h3>"Creatividad en escena": muestra artística ZENIT</h3>
+  <p>Proyectos creativos de estudiantes de Diseño Gráfico, Fotografía y Música.</p>
+  <button class="link-btn" data-open-news>Ver más <span>→</span></button>
+  <div class="news-card__full" hidden>
+    <p>ZENIT presenta <strong>"Creatividad en escena"</strong>, una muestra que reúne proyectos gráficos, fotografías e interpretaciones musicales desarrolladas por sus estudiantes.</p>
+    <p>La muestra recorre el diseño de piezas visuales, la fotografía creativa y la composición musical, destacando el talento y la expresión artística de cada carrera.</p>
+    <p><strong>Lugar:</strong> Galería ZENIT · <strong>Horario:</strong> 10:00 – 20:00 · <strong>Ingreso libre.</strong></p>
+  </div>
+</div>
+
+          </article>
+
+          <article class="news-card reveal" style="--d:.08s">
+            <div class="news-card__media"><img src="https://images.pexels.com/photos/39205323/pexels-photo-39205323.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Taller de pintura con estudiantes" loading="lazy" /><span class="news-card__cat">Taller</span></div>
+            <div class="news-card__body">
+              <time datetime="2026-05-06">06 Mayo 2026</time>
+              <h3>Taller abierto de ilustración y color digital</h3>
+              <p>Cuatro sesiones intensivas para explorar la ilustración desde el boceto hasta la pieza final.</p>
+              <button class="link-btn" data-open-news>Ver más <span>→</span></button>
+              <div class="news-card__full" hidden>
+                <p>Dirigido a jóvenes y adultos interesados en la ilustración. Trabajaremos composición, teoría del color, pinceles digitales y flujo de trabajo profesional.</p>
+                <p>Cupos limitados a 20 participantes. Se entregará certificado de participación.</p>
+                <p><strong>Duración:</strong> 4 sábados · <strong>Horario:</strong> 9:00 – 13:00.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="news-card reveal" style="--d:.16s">
+            <div class="news-card__media"><img src="https://images.pexels.com/photos/30727825/pexels-photo-30727825.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Pintura abstracta para concurso" loading="lazy" /><span class="news-card__cat">Concurso</span></div>
+            <div class="news-card__body">
+              <time datetime="2026-05-20">20 Mayo 2026</time>
+              <h3>Concurso Nacional de Arte Joven ZENIT 2026</h3>
+              <p>Premiamos a los nuevos talentos en diseño, fotografía y composición musical.</p>
+              <button class="link-btn" data-open-news>Ver más <span>→</span></button>
+              <div class="news-card__full" hidden>
+                <p>Convocamos a artistas de 16 a 25 años a presentar obras inéditas. Los ganadores recibirán <strong>becas completas</strong> de estudio, exhibición en la Galería ZENIT y premios en materiales.</p>
+                <p><strong>Categorías:</strong>diseño gráfico, fotografía y composición musical.</p>
+                <p><strong>Cierre de postulaciones:</strong> 30 de junio de 2026.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="news-card reveal" style="--d:.24s">
+            <div class="news-card__media"><img src="https://images.pexels.com/photos/9534912/pexels-photo-9534912.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Concierto con luces de colores" loading="lazy" /><span class="news-card__cat">Presentación musical</span></div>
+            <div class="news-card__body">
+              <time datetime="2026-06-12">12 Junio 2026</time>
+              <h3>Noche de Ensambles: concierto de fin de semestre</h3>
+              <p>Los ensambles de la carrera de Música presentan composiciones originales en vivo.</p>
+              <button class="link-btn" data-open-news>Ver más <span>→</span></button>
+              <div class="news-card__full" hidden>
+                <p>Una velada que reúne ensambles de cámara, jazz, música electrónica y coro. Todas las piezas fueron compuestas y producidas por estudiantes de ZENIT.</p>
+                <p><strong>Lugar:</strong> Auditorio Principal · <strong>Hora:</strong> 19:30 · Entradas libres previa reserva.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="news-card reveal" style="--d:.32s">
+            <div class="news-card__media"><img src="https://images.pexels.com/photos/2559741/pexels-photo-2559741.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Evento cultural en galería" loading="lazy" /><span class="news-card__cat">Evento cultural</span></div>
+            <div class="news-card__body">
+              <time datetime="2026-07-04">04 Julio 2026</time>
+              <h3>Festival ZENIT Abierto: arte en toda la ciudad</h3>
+              <p>Tres días de música, arte digital Y sesiones fotográficas .</p>
+              <button class="link-btn" data-open-news>Ver más <span>→</span></button>
+              <div class="news-card__full" hidden>
+                <p>El festival lleva el trabajo de nuestras cuatro carreras a plazas, parques y centros culturales. Incluye proyecciones de mapping, performances y conciertos al aire libre.</p>
+                <p>Toda la programación es gratuita y abierta al público.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="news-card reveal" style="--d:.40s">
+            <div class="news-card__media"><img src="img/musico.png" alt="Bailarina en escena" loading="lazy" /><span class="news-card__cat">Convocatoria</span></div>
+            <div class="news-card__body">
+              <time datetime="2026-07-22">22 Julio 2026</time>
+              <h3>Convocatoria: Compañía Joven Musico ZENIT</h3>
+              <p>Audiciones abiertas para integrar la nueva compañía de musica clasica del instituto.</p>
+              <button class="link-btn" data-open-news>Ver más <span>→</span></button>
+              <div class="news-card__full" hidden>
+                <p>Buscamos mentes creativas de 17 a 28 años, con pasión por explorar nuevas ideas, romper límites y cruzar horizontes.</p>
+                <p>Los seleccionados participarán en la temporada 2026–2027 con giras nacionales.</p>
+                <p><strong>Inscripción:</strong> hasta el 15 de agosto · <strong>Audición:</strong> 22 de agosto.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACTO
+         (dirección, teléfono y correo editables también en js/script.js → CONFIG)
+         ============================================================ -->
+    <section class="section contact" id="contacto">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag">07 — Contacto</span>
+          <h2 class="section__title">Hablemos de <em class="gradient-text">arte.</em></h2>
+        </div>
+
+        <div class="contact__grid">
+          <div class="contact__info reveal reveal--left">
+            <ul class="contact__list">
+              <li>
+                <span class="contact__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+                <div><small>Dirección</small><p data-config="address">Av. de las Artes 1020, Lima, Perú</p></div>
+              </li>
+              <li>
+                <span class="contact__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>
+                <div><small>Teléfono</small><p><a href="tel:+5112345678" data-config="phone">+51 1 234 5678</a></p></div>
+              </li>
+              <li>
+                <span class="contact__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg></span>
+                <div><small>Correo</small><p><a href="mailto:admision@zenit.edu" data-config="email">admision@zenit.edu</a></p></div>
+              </li>
+              <li>
+                <span class="contact__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+                <div><small>Horario de atención</small><p>Lunes a viernes 8:00 – 19:00 · Sábados 9:00 – 13:00</p></div>
+              </li>
+            </ul>
+
+            <div class="socials">
+              <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+              <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H8v4h2v8h4v-8h3l1-4h-4V8z"/></svg></a>
+              <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 3c.3 2.3 1.8 3.9 4 4.1v3.3c-1.5 0-2.9-.4-4-1.2v6.3A5.5 5.5 0 1 1 10.5 10v3.4a2.2 2.2 0 1 0 2.2 2.2V3H16z"/></svg></a>
+              
+            </div>
+
+            <!-- Mapa preparado para Google Maps (se construye desde CONFIG.mapQuery en js/script.js) -->
+            <div class="map" id="map">
+              <div class="map__placeholder">
+                <p>Mapa de ubicación</p>
+                <button class="btn btn--outline btn--sm" id="loadMap">Cargar mapa</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Formulario de consultas -->
+          <div class="form-card reveal reveal--right">
+            <div class="form-card__head">
+              <h3>Formulario de consultas</h3>
+              <p>¿Tienes dudas? Escríbenos y te responderemos en menos de 24 horas hábiles.</p>
+            </div>
+            <form class="form" id="contactForm" novalidate>
+              <div class="form__row">
+                <div class="field">
+                  <input type="text" id="cNombre" name="nombre" placeholder=" " autocomplete="name" required />
+                  <label for="cNombre">Nombre completo *</label>
+                  <small class="field__error"></small>
+                </div>
+              </div>
+              <div class="form__row form__row--2">
+                <div class="field">
+                  <input type="email" id="cCorreo" name="correo" placeholder=" " autocomplete="email" required />
+                  <label for="cCorreo">Correo electrónico *</label>
+                  <small class="field__error"></small>
+                </div>
+                <div class="field field--select">
+                  <select id="cAsunto" name="asunto" required>
+                    <option value="" disabled selected></option>
+                    <option>Información de carreras</option>
+                    <option>Admisión y becas</option>
+                    <option>Eventos y exposiciones</option>
+                    <option>Talleres libres</option>
+                    <option>Otro</option>
+                  </select>
+                  <label for="cAsunto">Asunto *</label>
+                  <small class="field__error"></small>
+                </div>
+              </div>
+              <div class="form__row">
+                <div class="field">
+                  <textarea id="cMensaje" name="mensaje" rows="5" placeholder=" " maxlength="600" required></textarea>
+                  <label for="cMensaje">Tu consulta *</label>
+                  <small class="field__error"></small>
+                </div>
+              </div>
+              <button type="submit" class="btn btn--gradient btn--block">
+                <span class="btn__label">Enviar consulta</span>
+                <span class="btn__loader" aria-hidden="true"></span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="footer__big" aria-hidden="true">ZENIT</div>
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a href="#inicio" class="nav__logo"><img src="img/logo.png" alt="Logo ZENIT" width="40" height="40" /><span class="nav__logo-text">ZENIT<small>Instituto de Bellas Artes</small></span></a>
+        <p>Siente, crea y expresa. Formamos a los artistas que transformarán la cultura del mañana.</p>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#carreras">Carreras</a></li>
+          <li><a href="#admision">Admisión</a></li>
+          <li><a href="#galeria">Galería</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Carreras</h4>
+        <ul>
+          <li><button class="footer__link" data-open-career="diseno">Diseño Gráfico</button></li>
+          <li><button class="footer__link" data-open-career="plasticas">Fotografía</button></li>
+          <li><button class="footer__link" data-open-career="musica">Música</button></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Comunidad</h4>
+        <ul>
+          <li><a href="#noticias">Noticias y eventos</a></li>
+          <li><a href="#suscripcion">Newsletter</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#inscripcion">Inscríbete</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>© <span id="year">2026</span> ZENIT – Instituto de Bellas Artes. Todos los derechos reservados.</p>
+      <p class="footer__slogan">ZENIT – <span class="gradient-text">Siente, crea y expresa.</span></p>
+    </div>
+  </footer>
+
+  <!-- Botón volver arriba (con anillo de progreso SVG) -->
+  <button class="to-top" id="toTop" aria-label="Volver arriba">
+    <svg class="to-top__ring" viewBox="0 0 50 50"><circle cx="25" cy="25" r="22" /></svg>
+    <svg class="to-top__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <!-- ============================================================
+       MODAL DE CARRERA (se rellena dinámicamente desde js/script.js)
+       ============================================================ -->
+  <div class="modal" id="careerModal" role="dialog" aria-modal="true" aria-labelledby="careerModalTitle" hidden>
+    <div class="modal__overlay" data-close></div>
+    <div class="modal__dialog modal__dialog--career">
+      <button class="modal__close" data-close aria-label="Cerrar">×</button>
+      <div class="cm__hero">
+        <img id="cmImg" src="img/portada.png" alt="" />
+        <div class="cm__hero-text">
+          <span class="cm__badge" id="cmNum">01</span>
+          <h3 id="careerModalTitle">Carrera</h3>
+          <p id="cmTagline"></p>
+          <div class="career-card__meta"><span>3 años</span><span>6 semestres</span><span>Título profesional</span></div>
+        </div>
+      </div>
+      <div class="cm__body">
+        <p class="cm__desc" id="cmDesc"></p>
+        <div class="tabs" data-tabs>
+          <div class="tabs__list" role="tablist">
+            <button class="tabs__btn active" data-tab="plan">Plan de estudios</button>
+            <button class="tabs__btn" data-tab="comp">Competencias</button>
+            <button class="tabs__btn" data-tab="perfil">Perfil profesional</button>
+          </div>
+          <div class="tabs__panel active" data-panel="plan"><div class="semesters" id="cmPlan"></div></div>
+          <div class="tabs__panel" data-panel="comp"><ul class="check-list" id="cmComp"></ul></div>
+          <div class="tabs__panel" data-panel="perfil"><p id="cmPerfilIntro"></p><ul class="check-list" id="cmPerfil"></ul></div>
+        </div>
+        <div class="cm__actions">
+          <button class="btn btn--pink" id="cmEnroll">Inscribirme en esta carrera</button>
+          <button class="btn btn--outline" data-close>Seguir explorando</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE NOTICIAS -->
+  <div class="modal" id="newsModal" role="dialog" aria-modal="true" aria-labelledby="newsModalTitle" hidden>
+    <div class="modal__overlay" data-close></div>
+    <div class="modal__dialog modal__dialog--news">
+      <button class="modal__close" data-close aria-label="Cerrar">×</button>
+      <img id="nmImg" src="img/portada.png" alt="" class="nm__img" />
+      <div class="nm__body">
+        <span class="news-card__cat" id="nmCat"></span>
+        <time id="nmDate"></time>
+        <h3 id="newsModalTitle"></h3>
+        <div id="nmContent"></div>
+        <button class="btn btn--gradient btn--sm" data-close data-goto="#suscripcion">Recibir más noticias</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX DE GALERÍA -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visor de galería" hidden>
+    <button class="lightbox__close" data-close aria-label="Cerrar">×</button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" aria-label="Anterior">‹</button>
+    <figure class="lightbox__figure">
+      <img id="lbImg" src="img/portada.png" alt="" />
+      <figcaption id="lbCaption"></figcaption>
+    </figure>
+    <button class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="Siguiente">›</button>
+    <span class="lightbox__counter" id="lbCounter"></span>
+  </div>
+
+  <!-- Notificaciones (toast) -->
+  <div class="toast-stack" id="toastStack" aria-live="polite"></div>
+
+  <!-- JavaScript principal -->
+  <script src="js/script.js" defer></script>
+</body>
+</html>
